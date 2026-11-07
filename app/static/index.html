@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AquaGuard</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header><div class="brand"><span class="drop">◆</span> AquaGuard <small>alpha 0.5</small></div>
+<div id="who"></div></header>
+<main>
+<section id="login" class="card narrow">
+  <h2>Sign in</h2>
+  <label>Username <input id="u" autocomplete="username" value="maya"></label>
+  <label>Password <input id="p" type="password" autocomplete="current-password" value="reef-demo-1"></label>
+  <button id="signin">Sign in</button>
+  <p class="hint">Demo users: maya / reef-demo-1 (customer), agent-lee / agent-demo-4 (agent)</p>
+  <p id="loginerr" class="err"></p>
+</section>
+<section id="customer" hidden>
+  <div class="row">
+    <div class="card grow">
+      <div class="cardhead"><h2>Tank</h2><select id="tank"></select><span id="badge" class="badge">—</span></div>
+      <div class="stats" id="stats"></div>
+      <canvas id="chart" width="760" height="240"></canvas>
+      <p class="hint">Temperature (°C), newest on the right. Shaded band = tank's safe range.</p>
+    </div>
+    <div class="card chat">
+      <div class="cardhead"><h2>Assistant</h2><span class="model" id="model">aq-v1</span></div>
+      <div id="log"></div>
+      <div class="ask"><input id="q" placeholder="Ask about temperature, pH, water level…"><button id="send">Send</button></div>
+      <button id="human" class="ghost">Talk to a human</button>
+    </div>
+  </div>
+</section>
+<section id="agent" hidden>
+  <div class="row">
+    <div class="card"><h2>Open cases</h2><ul id="cases"></ul></div>
+    <div class="card grow"><h2>Transcript</h2><div id="tlog"></div>
+      <div class="ask"><input id="rtext" placeholder="Reply to the customer"><label class="inline"><input type="checkbox" id="close" checked> close case</label><button id="rsend">Reply</button></div>
+    </div>
+  </div>
+</section>
+</main>
+<script src="/static/app.js"></script>
+</body>
+</html>
