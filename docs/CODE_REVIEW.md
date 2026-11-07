@@ -1,8 +1,8 @@
 # Code review log
 
 AquaGuard was built by one developer, so "peer review" combined (1) a structured self-review against the
-course review checklist, (2) an automated reviewer (GitHub Copilot code review on the pull request), and
-(3) machine checks in CI (ruff, pytest, coverage gate, metric gate). Findings and their resolution are below.
+course review checklist, (2) a recorded pull-request review with inline comments on PR #1 (a GitHub Copilot review was requested
+but did not produce comments), and (3) machine checks in CI (ruff, pytest, coverage gate, metric gate). Findings and their resolution are below.
 
 | Area | Finding | Resolution |
 | --- | --- | --- |
@@ -20,4 +20,5 @@ course review checklist, (2) an automated reviewer (GitHub Copilot code review o
 | Integration | Duplicate chat submissions created duplicate cases | Idempotency key per `message_id`; in-flight 409 |
 | Documentation | API errors undocumented | `docs/API.md` error table + OpenAPI at `/docs` |
 
-Pull request reviews: see the repository's Pull requests tab (Copilot review on the alpha integration PR).
+Pull request reviews: see PR #1 in the repository's Pull requests tab (review with three inline comments, each
+resolved by commit 3020c3a, and a green CI run — see [CI_EVIDENCE.md](CI_EVIDENCE.md)).

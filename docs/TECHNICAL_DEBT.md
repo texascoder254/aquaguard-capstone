@@ -12,6 +12,7 @@ Each item is deliberate for the alpha. Severity reflects risk if AquaGuard serve
 | TD-6 | Vanilla JS UI without a build or UI tests | Fast to ship; no toolchain | Harder to grow; untested UI | React/Vite + Playwright smoke tests in CI | Low |
 | TD-7 | Detector evaluated only on synthetic data | No real sensor data yet | Real-world false alarms unknown | Use stored feedback + agent outcomes to re-run `evaluate_detector` on labelled real windows | Medium |
 | TD-8 | Benchmarks are in-process | No staging environment | Understates latency | Run the benchmark against a deployed container with `httpx` | Low |
+| TD-9 | CI actions pinned to Node 20-based majors (`checkout@v4`, `setup-python@v5`, `upload-artifact@v4`) | Stable, widely used versions at alpha time | GitHub deprecation notice; future runner breakage | Bump to the Node 24-based majors and pin by commit SHA; add Dependabot for `github-actions` | Low |
 
 ## Paid down during the alpha
 

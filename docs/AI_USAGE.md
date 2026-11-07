@@ -7,7 +7,7 @@ development focus. All AI output was reviewed, run, and tested before it was kep
 | --- | --- | --- |
 | Code | Drafting module skeletons, SQL, and test cases | Every module covered by pytest; 91% coverage gate in CI |
 | Detector | Suggesting robust z-score (MAD) for spikes | Evaluation exposed a quantization false-alarm bug; threshold chosen on training data only |
-| Review | GitHub Copilot pull-request review | Each suggestion accepted or rejected with a reason in the PR |
+| Review | AI-assisted review checklist; GitHub Copilot review requested on PR #1 (no comments produced) | Review findings recorded as inline PR comments and fixed in commit 3020c3a |
 | Docs | Drafting README, manuals, and this report | Commands in docs were executed; numbers copied from `docs/metrics` |
 
 Runtime AI in AquaGuard (`aq-v1`) is a local, deterministic provider. It is advisory only and cannot

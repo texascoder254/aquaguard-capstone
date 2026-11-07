@@ -14,3 +14,5 @@ Images are SVG wrappers around JPEG captures.
 | 7 | Agent queue and transcript | ![](screenshots/06-agent-queue.svg) |
 | 8 | Agent reply closes the case | ![](screenshots/07-agent-reply-closed.svg) |
 | 9 | OpenAPI docs at `/docs` | ![](screenshots/08-openapi-docs.svg) |
+| 10 | CI run #1 green on PR #1 (3.11 + 3.13) | ![](screenshots/09-ci-run-green.svg) |
+| 11 | CI job steps: lint, tests, detector, benchmark, quality gate | ![](screenshots/10-ci-job-steps.svg) |
