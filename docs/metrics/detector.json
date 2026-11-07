@@ -1,0 +1,78 @@
+{
+  "model_version": "aq-v1",
+  "rise_threshold_c_per_30min": 0.45,
+  "spike_z": 4.0,
+  "held_out": {
+    "stable": {
+      "n": 1000,
+      "flagged": 0,
+      "rate": 0.0
+    },
+    "gradual_rise": {
+      "n": 1000,
+      "flagged": 991,
+      "rate": 0.991
+    },
+    "spike": {
+      "n": 1000,
+      "flagged": 1000,
+      "rate": 1.0
+    },
+    "slow_drift": {
+      "n": 1000,
+      "flagged": 1,
+      "rate": 0.001
+    },
+    "summary": {
+      "gradual_rise_detection_rate": 0.991,
+      "spike_detection_rate": 1.0,
+      "false_alarm_rate": 0.0005,
+      "targets": {
+        "gradual_rise_detection_rate": ">= 0.80",
+        "false_alarm_rate": "<= 0.10"
+      }
+    }
+  },
+  "train_sweep": [
+    {
+      "rise_threshold": 0.3,
+      "detect": 1.0,
+      "false_alarm": 0.025
+    },
+    {
+      "rise_threshold": 0.4,
+      "detect": 1.0,
+      "false_alarm": 0.0025
+    },
+    {
+      "rise_threshold": 0.45,
+      "detect": 1.0,
+      "false_alarm": 0.0
+    },
+    {
+      "rise_threshold": 0.5,
+      "detect": 0.96,
+      "false_alarm": 0.0
+    },
+    {
+      "rise_threshold": 0.6,
+      "detect": 0.895,
+      "false_alarm": 0.0
+    },
+    {
+      "rise_threshold": 0.7,
+      "detect": 0.8,
+      "false_alarm": 0.0
+    },
+    {
+      "rise_threshold": 0.8,
+      "detect": 0.73,
+      "false_alarm": 0.0
+    },
+    {
+      "rise_threshold": 1.0,
+      "detect": 0.53,
+      "false_alarm": 0.0
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "readings": 1000,
+  "ingest_ms": {
+    "p50": 2.83,
+    "p95": 3.43,
+    "p99": 3.96,
+    "mean": 2.91
+  },
+  "ingest_to_visible_ms_p95": 6.5,
+  "within_2s_rate": 1.0,
+  "assistant_ms": {
+    "p50": 3.09,
+    "p95": 3.9
+  },
+  "throughput_readings_per_s": 343.2,
+  "target": "95% of valid readings visible within 2000 ms"
+}

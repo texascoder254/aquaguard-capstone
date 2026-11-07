@@ -1,0 +1,43 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.11", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Lint (ruff)
+        run: ruff check app tests scripts
+      - name: Unit and integration tests with coverage
+        run: pytest -q --cov=app --cov-report=term-missing --cov-report=xml --cov-fail-under=85
+      - name: Detector evaluation (held-out scenarios)
+        run: python -m scripts.evaluate_detector --out docs/metrics/detector.json
+      - name: Ingestion benchmark
+        run: python -m scripts.benchmark --n 1000 --out docs/metrics/benchmark.json
+      - name: Quality gate
+        run: python -m scripts.check_metrics
+      - name: Upload coverage and metrics
+        if: matrix.python-version == '3.13'
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-and-metrics
+          path: |
+            coverage.xml
+            docs/metrics/*.json

@@ -1,0 +1,19 @@
+Name                      Stmts   Miss  Cover
+---------------------------------------------
+app/__init__.py               1      0   100%
+app/ai.py                   103     10    90%
+app/assistant.py             70      9    87%
+app/config.py                12      1    92%
+app/customer_adapter.py       9      1    89%
+app/errors.py                12      0   100%
+app/feedback.py              23      4    83%
+app/handoff.py               71      9    87%
+app/main.py                 147     12    92%
+app/monitoring.py            90      3    97%
+app/policy.py                22      2    91%
+app/repository.py            28      1    96%
+app/security.py              35      3    91%
+app/seed.py                  20      1    95%
+app/timeutil.py              10      1    90%
+---------------------------------------------
+TOTAL                       653     57    91%
