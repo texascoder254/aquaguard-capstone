@@ -1,0 +1,20 @@
+[project]
+name = "aquaguard"
+version = "0.5.0a0"
+description = "AquaGuard: aquarium monitoring with AI anomaly detection and human handoff (CMSC 495 capstone)"
+requires-python = ">=3.11"
+
+[tool.ruff]
+line-length = 160
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["app/server.py"]
