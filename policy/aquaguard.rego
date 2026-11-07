@@ -11,7 +11,7 @@ allow if {
 }
 
 allow if {
-    input.action in {"readings:read", "messages:write", "cases:open", "feedback:write"}
+    input.action in {"readings:read", "messages:write", "cases:open", "feedback:write", "transcript:read"}
     input.principal.role == "customer"
     input.resource.client_id == input.principal.client_id
 }
