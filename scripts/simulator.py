@@ -31,7 +31,10 @@ def main():
     ap.add_argument("--ph", type=float, default=8.1, help="mean pH (use ~7.0 for freshwater planted tanks)")
     a = ap.parse_args()
     with httpx.Client(base_url=a.url, timeout=5) as c:
-        tok = c.post("/api/v1/auth/token", json={"username": a.user, "password": DEMO_PASSWORDS[a.user]}).json()["access_token"]
+        login = c.post("/api/v1/auth/token", json={"username": a.user, "password": DEMO_PASSWORDS[a.user]})
+        if login.status_code != 200:
+            raise SystemExit(f"Login failed for {a.user}: HTTP {login.status_code} {login.text}")
+        tok = login.json()["access_token"]
         h = {"Authorization": f"Bearer {tok}"}
         rng = random.Random(a.seed)
 
